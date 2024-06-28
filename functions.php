@@ -43,3 +43,18 @@ if ( class_exists( 'Jetpack' ) ) {
 foreach ( $understrap_includes as $file ) {
 	require_once get_theme_file_path( $understrap_inc_dir . $file );
 }
+
+// register blocks
+add_action( 'init', 'register_acf_blocks' );
+function register_acf_blocks() {
+	register_block_type( __DIR__ . '/template-parts/blocks/section' );
+}
+
+// include separate functions files
+require_once( __DIR__ . '/functions/options-pages.php');
+require_once( __DIR__ . '/functions/root-style.php');
+require_once( __DIR__ . '/functions/menus.php');
+require_once( __DIR__ . '/functions/blocks.php');
+require_once( __DIR__ . '/functions/post-types.php');
+require_once( __DIR__ . '/functions/shortcodes.php');
+require_once( __DIR__ . '/functions/global-functions.php');
